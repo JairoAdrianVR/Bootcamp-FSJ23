@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #191c54;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    width: 100vw;
+}
+
+/* -------------------- Header --------------------*/
+.header{
+    color: #fff;
+}
+
+.header .navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.header .navbar .logo{
+    font-size: 1.5em;
+}
+
+.header .navbar .logo h2 span{
+    color: #3462ed;
+}
+
+.header .navbar .logo h2 span:hover{
+    color: #191c54;
+    text-shadow: 3px 1px #fff;
+}
+
+.header .navbar .menu{
+    display: flex;
+    justify-content: space-around;
+}
+
+.header .navbar .menu li{
+    list-style: none;
+    margin-top: 0.7rem;
+}
+
+.header .navbar .menu li a{
+    text-decoration: none;
+    padding: 1.2rem;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.header .navbar .menu li a:hover{
+    font-size: 1.05rem;
+    text-shadow: 3px 2px  #3462ed;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+/* -------------------- Bio --------------------*/
+
+.main-content{
+    color: #fff;
+    margin: 0 auto;
+    padding: 0 90px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main-content .info-content{
+    text-shadow: 2px 2px black;
+}
+
+.main-content .info-content h1{
+    font-size: 2rem;
+}
+
+.main-content .info-content .btn-download-cv{
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background-color: aqua;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 3px 10px rgba(150, 11, 230, 0.732);
+    cursor: pointer;
+}
+
+.main-content img{
+    margin-left: 200px ;
+    width: 400px;
+    transition: 0.5s;
+}
+
+.main-content img:hover{
+    border: 3px solid #2ebfefae !important;
+    transition: 0.5s;
+
+}
+
+
+/* --------- Portfolio ---------- */
+
+.portfolio-container {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+    width: 300px; 
+}
+
+.card-img img {
+    width: 100%; 
+    height: auto; }
+
+.card-title {
+    padding: 15px;
+    text-align: center; 
+}
+
+.card-links {
+    display: flex;
+    justify-content: space-around; 
+    padding: 15px;
+}
+
+.contact-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contact-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-card h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}

@@ -5,7 +5,7 @@
  * do while
  * foreach
  */
-/*
+
 //coleccion datos (arreglo de objetos)
 let arreglo_empleados = [
     {
@@ -40,7 +40,7 @@ for(let contador = 1; contador <= 10; contador++){
  * para acceder a una posicion del arreglo se utiliza [numero posicion] = [0]
  * para acceder a una propiedad del objeto se utiliza el punto (.)
  */
-/*
+
 let aumento_salario = 0;
 for(let posicion = 0; posicion < arreglo_empleados.length; posicion++){
     //accediendo al sueldo de los empleados del arreglo
@@ -76,7 +76,7 @@ for(let posicion = 0; posicion < arreglo_empleados.length; posicion++){
 
 //While
 //mientras (se cumpla esto) { hace esto}
-
+/*
 while(contador < longanismo){
     console.log(arraycito[contador]); //2
     contador++; // 3
@@ -188,7 +188,7 @@ iniciarSesion(() => {
     console.log("Soy una funcion flecha y soy anonima");
 })
 */
-
+/*
 function despedidaUsuario(nombreUsuario){
         console.log("Siempre me dejan solo por burro adios "+nombreUsuario);
 }
@@ -216,3 +216,4 @@ let resultadoFuncioncita = tipoVoid();
 let resultadoFuncioncitaNumero = tipoNumero();
 console.log(resultadoFuncioncita); //undefined
 console.log(resultadoFuncioncitaNumero+2);
+*/

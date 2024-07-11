@@ -5,7 +5,7 @@
  * do while
  * foreach
  */
-
+/*
 //coleccion datos (arreglo de objetos)
 let arreglo_empleados = [
     {
@@ -29,6 +29,7 @@ let arreglo_empleados = [
 /**
  * contador = contador + 1 (contador++)
  */
+/*
 for(let contador = 1; contador <= 10; contador++){
     console.log(contador);
 }
@@ -39,6 +40,7 @@ for(let contador = 1; contador <= 10; contador++){
  * para acceder a una posicion del arreglo se utiliza [numero posicion] = [0]
  * para acceder a una propiedad del objeto se utiliza el punto (.)
  */
+/*
 let aumento_salario = 0;
 for(let posicion = 0; posicion < arreglo_empleados.length; posicion++){
     //accediendo al sueldo de los empleados del arreglo
@@ -74,7 +76,7 @@ for(let posicion = 0; posicion < arreglo_empleados.length; posicion++){
 
 //While
 //mientras (se cumpla esto) { hace esto}
-/*
+
 while(contador < longanismo){
     console.log(arraycito[contador]); //2
     contador++; // 3
@@ -98,15 +100,119 @@ for(let i = 0; i < longanismo;i++ ){
     console.log(arraycito[i]);
     auxiliar++;
 }
-console.log(auxiliar);*/
+console.log(auxiliar);
 
-let arraycito = [1,2,3];
+let arraycito = [1,2,3,4,5,6];
 
 let longanismo = arraycito.length; //3
 let contador = 0;
 
 //Imprimir el array de forma descendente
-for(let i = longanismo-1; i>=0; i--){
+for(let i = longanismo-1; i>=0; i++){
     console.log(arraycito[i]); //
 }
 longanismo //3
+
+
+function sumar(a,b){
+    return a+b;
+}
+
+//Realizar una funcion la cual me permita realizar una de las operaciones matematicas basicas a eleccion
+//considerando dos numeros. (suma, resta, multiplicacion y division)
+//Y me permita elegir
+
+function operando2Numeros(a,b,operacion){
+
+    //Solucion 1 
+    switch (operacion) {
+        case '+':
+              x = a + b;
+              console.log(`a mas b = ${x}`);
+              break;
+        case '-':
+              x = a - b;
+              console.log(`a menos b = ${x}`);
+              break;
+        case '*':
+              x = a * b;
+              console.log(`a por b = ${x}`);
+              break;
+        case '/':
+              x = a / b;
+              console.log(`a entre b = ${x}`);
+              break;    
+        default:
+          console.log(`Perdon, no se que es ${operacion}.`);
+      }
+
+      //Solucion 2
+
+      if(operacion==="sumar"){
+          return (a+b)
+      }else if(operacion==="restar"){
+          return (a-b)
+      } else if(operacion==="multiplicar"){
+          return (a*b)
+      }
+}*/
+
+
+//Callback -> Funcion que se pasa como parametro a otra funcion
+/*
+function saludar(){
+    console.log("Holiwi");
+}
+//saludar();
+function despedir(){
+    console.log("Te quedaste sin trabajo");
+}
+
+function iniciarSesion(callback){
+    callback();
+}
+iniciarSesion(saludar)
+iniciarSesion(despedir)
+
+
+//Funciones anonimas -> Funciones sin nombre
+iniciarSesion(function () {
+    console.log("Soy parte de anonimus");
+})
+
+let jorgito = function () {
+
+}
+
+iniciarSesion(() => {
+    console.log("Soy una funcion flecha y soy anonima");
+})
+*/
+
+function despedidaUsuario(nombreUsuario){
+        console.log("Siempre me dejan solo por burro adios "+nombreUsuario);
+}
+
+function cerrarSesion(usuario,callback){
+    callback(usuario);
+};
+
+cerrarSesion("Jairo",despedidaUsuario)
+
+despedidaUsuario("Jairo")
+
+//Funcion tipo Void -> Es una funcion VACIA
+
+function tipoVoid(){
+    console.log(1+1);
+}
+
+function tipoNumero(){
+    return 1+1
+}
+
+//Guardamos los datos para que vivan un rato
+let resultadoFuncioncita = tipoVoid();
+let resultadoFuncioncitaNumero = tipoNumero();
+console.log(resultadoFuncioncita); //undefined
+console.log(resultadoFuncioncitaNumero+2);

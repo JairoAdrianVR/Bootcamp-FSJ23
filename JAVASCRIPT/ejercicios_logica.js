@@ -114,3 +114,38 @@ function FizzBuzzArray(arr){
 }
 
 FizzBuzzArray([1,2,3,4,5,6,7,15,18,21])
+
+// Crear una funcion que tomando un array de enteros y un numero limite.
+// Devolver un array que contenga solo numeros mayores a el numero limite
+// EL EJERCICIO SE DEBE RESOLVER SIN UTILIZAR EL BUCLE FOR Y EL METODO MAP
+
+let array3 = [15,10,8,5,73,30,4];
+
+function arrayNumeroMayorConMetodo(array,x){
+    return array.filter( numero => numero > x);
+}
+
+console.log(arrayNumeroMayorConMetodo(array3,5));
+
+function arrayNumeroMayor(array,x){
+   //Code ur solution
+    let i = 0;
+    let resp = [];
+
+    while(i<array.length){
+
+        if(array[i]>x){
+            resp.push(array[i])
+        }
+        i++;
+    }
+
+    //array.map((numero)=>{ if(numero>x){resp.push(numero)}})
+    return resp;
+}
+
+console.log(arrayNumeroMayor(array3,5));
+
+let arr1 = [1,2,3,4];
+
+arr1.map((valor)=>{ valor > 1 ? console.log("El valor es mayor"): console.log("El valor es menor");});

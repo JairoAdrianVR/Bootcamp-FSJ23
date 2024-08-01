@@ -55,7 +55,7 @@ function pintarCarritoHTML(){
         <td> ${curso.nombre}</td>
         <td> ${curso.precio}</td>
         <td> ${curso.cantidad}</td>
-        <td>X</td>
+        <td><a class="btn btn-danger" onclick="eliminarCurso(${curso.id})">Eliminar</a></td>
         `
 
         //Agregar la fila a el contenedor del carrito
@@ -68,4 +68,24 @@ function vaciarCarrito(e){
     e.preventDefault();
     cursosCarrito = [];
     contenedorCarrito.innerHTML = '';
+}
+
+function eliminarCurso(id){
+    //console.log("Estoy eliminado esto");
+    //Recorremos el array
+    cursosCarrito.map( curso => {
+        //Si el curso existe en el carrito
+        if(curso.id == id){
+            //Si la cantidad de ese curso es mayor a 1
+            if( curso.cantidad > 1){
+                //Reducimos su cantidad en 1
+                curso.cantidad-= 1;
+                return curso;
+            }else{
+            //Va a filtrar y guardar en cursosCarrito todos los que sean diferentes a ese curso
+            cursosCarrito = cursosCarrito.filter( curso => curso.id != id );
+            }
+        }
+    })
+    pintarCarritoHTML();
 }

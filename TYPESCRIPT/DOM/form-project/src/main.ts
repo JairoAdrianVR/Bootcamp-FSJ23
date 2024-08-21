@@ -1,24 +1,60 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+    <h1 id="textHi">Holiwis ahora si empezamos</h1>
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    <form id="registerForm">
+        <section>
+            <label>Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required>
+        </section>
+
+         <section>
+            <label>Email:</label>
+            <input type="email" id="email" name="email" required>
+        </section>
+
+        <section>
+            <label>Password:</label>
+            <input type="password" id="password" name="password" required>
+        </section>
+
+        <section>
+            <label>Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </section>
+
+        <button type="submit">Registrarse</button>
+    </form>
+
+  </div>
+`;
+
+const text:HTMLElement = document.querySelector<HTMLElement>('#textHi')!;
+text.innerText = "Cambiando con TS";
+
+const form = document.getElementById("registerForm") as HTMLFormElement ;
+
+form.addEventListener('submit',(e:SubmitEvent) => {
+    e.preventDefault();
+
+    //Seleccionamos los elementos de HTML, nuestros input
+    const username = (document.getElementById("username") as HTMLInputElement).value;
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const password = (document.getElementById("password") as HTMLInputElement).value;
+    const confirmPassword = (document.getElementById("confirmPassword") as HTMLInputElement).value;
+
+
+    //Validacion basica
+  if(username.trim() === "" || password.trim() === "" || confirmPassword.trim() === "" ){
+    alert("Completar todos los campos correctamente");
+    return;
+  }
+
+    console.log("Funciona");
+    console.log(`Los datos del form son: ${username} ,${email}, ${password} y ${confirmPassword}`);
+    
+  alert("Te registraste correctamente, gracias por tus datos.")
+})
+

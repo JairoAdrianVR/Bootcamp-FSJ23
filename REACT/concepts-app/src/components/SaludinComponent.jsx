@@ -1,9 +1,11 @@
 //Creamos un nuevo componente JSX
-export function Saludin (){
+// eslint-disable-next-line react/prop-types
+export function Saludin ({nombreUsuario}){
+    //Props -> Propiedades se reciben desde otro componente y son dinamicas
 
     return (
     <>
-      <h1>Hola te saludo desde el saludin</h1>
+      <h1>Hola {nombreUsuario}, te saludo desde el saludin</h1>
     </>
     
   )

@@ -17,11 +17,11 @@ function App() {
   return (
    //Fragment -> <> </> DELIMITADORES CONTENEDORES
   //Mostrar un componente en la vista, lo cargamos en el App.jsx
-  //Para ingresar codigo JS en el HTML vamos a utilizar las { }
+  //Para ingresar(inyectar) codigo JS en el HTML vamos a utilizar las { }
     <>
         <h1>Hola llegamos a React, mi nombre es {nombreEstado} </h1>
         <button  onClick={() => cambiarValorEstado("Jorge")}>MAGIA</button>
-        <Saludin nombreUsuario="Judith" />
+        <Saludin nombreUsuario={nombreEstado} />
     </>
   )
 }

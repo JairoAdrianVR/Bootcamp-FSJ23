@@ -1,25 +1,22 @@
-import { useEffect } from "react"
+import { useCountriesData } from "../hooks/useCountriesData"
+import { ListCountries } from "./components/ListCountries";
 
 export const Countries = () => {
-    //useEffect -> Ejecutar algo al momento de montar un componente
-    //-> Sincronizar datos, ejecutar algo en fase de ACTUALIZACION
-
-    const getCountries = async () => {
-        let response = await fetch('https://restcountries.com/v3.1/all')
-        console.log(response);
-    }   
-
-
-    useEffect( () => { 
-        console.log("Holis");
-        getCountries();
-
-    },[]
-)
+    //Recibiendo la informacion del hook useCointriesData
+    let countries = useCountriesData();
 
     return(
         <>
-            Countries
+            <h1>List of Countries</h1>
+            {/* Aca agrego mi codigo JS*/}
+            {/* Renderizado condicional -> OPCION DE MOSTRAR UN DATO O OTROS*/}
+            {  countries.length > 0 ?  <ListCountries countries={countries}/> :  (
+                <div className="flex flex-col items-center">
+                  <iframe src="https://lottie.host/embed/d075c402-1ed0-45c3-83b5-e19c8129ec40/oO1BA53nqt.json"></iframe>
+                  <h1>Loading...</h1>
+                </div>
+              )
+               }
         </>
     )
 }

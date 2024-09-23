@@ -4,6 +4,8 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import { auth } from '../../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../../context/UserDataContext';
 
 const schema = yup.object().shape({
     email: yup.string().required("El correo es un campo obligatorio").email("Correo invalido. Ejemplo: asd@dominio.com"),
@@ -15,6 +17,7 @@ export const LoginForm = () => {
         resolver: yupResolver(schema)
     });
 
+    const {setData} = useContext(UserContext)
     const navigate = useNavigate();
 
     const onSubmitForm = (data) => {
@@ -26,7 +29,9 @@ export const LoginForm = () => {
     const user = userCredential.user;
     console.log(user);
     
-    navigate('/')
+    //Utilizamos el contexto para guardar el usuario
+    setData(user)
+    navigate('/') //Si el usuario se logea con exito, redireccionamos al home
   })
   .catch((error) => {
     //const errorCode = error.code;

@@ -1,7 +1,7 @@
 //Modelo ES LA REPRESENTACION DE UN DATO A MANIPULAR/GUARDAR
 export interface ICountry{
     name : { common:string },
-    flags: { svg:string },
+    flags: { svg?:string, png?: string },
     capital: string[],
     region: string,
     languages?: {eng?:string}

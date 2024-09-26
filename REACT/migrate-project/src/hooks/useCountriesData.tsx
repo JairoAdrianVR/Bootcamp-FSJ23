@@ -3,7 +3,7 @@ import { ICountry } from "../models/ICountry";
 // eslint-disable-next-line react-refresh/only-export-components
 const APIuri = "https://restcountries.com/v3.1/all"
 
-export const useCountriesData = () => {
+export const useCountriesData = (region:string,name:string) => {
     const [countries,setCountries] = useState<ICountry[]>([])
 
     const getCountries = async ( ) => {
@@ -11,12 +11,23 @@ export const useCountriesData = () => {
         const data: ICountry[] = await response.json();
         console.log(data);
         
-        setCountries(data)
+        let filteredCountries = data;
+
+        if(region){
+            filteredCountries = filteredCountries.filter((country) => country.region === region )
+        }
+
+
+        if(name){
+            filteredCountries = filteredCountries.filter((country) => country.name.common  === name )
+        }      
+
+        setCountries(filteredCountries)
     }
 
     useEffect(() => {
         getCountries();
-    },[])
+    },[region,name])
 
   return countries
 }

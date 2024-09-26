@@ -1,4 +1,5 @@
 import { ICountry } from "../../../models/ICountry"
+import { CardCountry } from "./CardCountry"
 
 interface ICountriesProps{
     countries: ICountry[]
@@ -7,7 +8,7 @@ interface ICountriesProps{
 export const ListCountries:React.FC<ICountriesProps> = ({countries}) => {
   return (
     <>
-    {countries.map((country) => <h3>{country.name.common}</h3>)}
+    {countries.map((country) => <CardCountry country={country} />)}
     </>
   )
 }

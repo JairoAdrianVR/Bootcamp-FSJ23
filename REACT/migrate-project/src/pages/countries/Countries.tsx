@@ -9,7 +9,7 @@ export const Countries = () => {
   const [name, setName] = useState('');
 
     /* 1. TRAER LA INFO DE LA API */
-    const countries = useCountriesData(region,name);
+    const countries = useCountriesData(region, name);
 
 
     /* Pintar esta INFO */
@@ -33,7 +33,9 @@ export const Countries = () => {
   Find your country: 
 
   <input type="text" placeholder="Search your country" className="form-control m-2" 
-    onChange={(e) => setName(e.target.value)}
+    onChange={(e) => setName(e.target.value)
+    
+    }
   />
 </label>
 {  countries.length > 0 ?  <ListCountries countries={countries}/> : <LoadingComponent />

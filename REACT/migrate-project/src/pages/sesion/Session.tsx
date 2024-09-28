@@ -1,17 +1,16 @@
 import { RegisterForm } from "./components/RegisterForm"
 import { LoginForm } from "./components/LoginForm"
 import { useState } from "react"
-import { Link } from "react-router-dom";
 
 export const Session = () => {
   const [typeForm,setTypeForm] = useState("");
 
   return (
-    <div>
-        <Link to='/'>Regresar</Link> <br/>
-        <button onClick={() => {setTypeForm("Login")}}>Log In</button>
-        <button  onClick={() => {setTypeForm("Register")}}>Register</button>
-
+    <div className="card">
+      <section className="row justify-content-center">
+        <button className=" col-4 m-2" onClick={() => {setTypeForm("Login")}}>Log In</button>
+        <button className=" col-4 m-2" onClick={() => {setTypeForm("Register")}}>Register</button>
+        </section>
         {typeForm === "Login" ? <LoginForm /> : <RegisterForm />}
     </div>
   )

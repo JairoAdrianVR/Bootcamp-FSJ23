@@ -4,6 +4,9 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import { auth } from '../../../firebase/config';
 import { signInWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { IUser } from '../../../models/IUser';
+import { useContext } from 'react';
+import { UserContext } from '../../../context/UserDataContext';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object().shape({
     email: yup.string().required("El correo es un campo obligatorio").email("Correo invalido. Ejemplo: asd@dominio.com"),
@@ -15,15 +18,20 @@ export const LoginForm = () => {
         resolver: yupResolver(schema)
     });
 
+    const {setCurrentUser} = useContext(UserContext);
+    const navigate = useNavigate();
+
     const onSubmitForm = (data:IUser) => {
-        console.log(data);
+        //console.log(data);
 
         signInWithEmailAndPassword(auth, data.email, data.password)
   .then((userCredential:UserCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-    
+    //console.log(user);
+    setCurrentUser(user);
+    navigate('/');
+
   })
   .catch((error) => {
     //const errorCode = error.code;
@@ -33,21 +41,21 @@ export const LoginForm = () => {
     }
 
   return (
-    <div>
+    <div className='container'>
             <h1>Login Form</h1>
-            <form onSubmit={handleSubmit(onSubmitForm)}>
+            <form onSubmit={handleSubmit(onSubmitForm)} >
             <section>
-                <label>Email</label>
-                <input type="email" id="email" placeholder="Email for register" {...register('email')}   />
+                <label className='form-label'>Email</label>
+                <input className='form-control' type="email" id="email" placeholder="Email for register" {...register('email')}   />
                 <p style={{color:"red"}}>{errors.email && errors.email.message}</p>
             </section>
 
             <section>
-                <label>Password</label>
-                <input type="password" id="password" placeholder="Password for register" {...register('password')} />
+                <label className='form-label'>Password</label>
+                <input className='form-control' type="password" id="password" placeholder="Password for register" {...register('password')} />
                 <p style={{color:"red"}}>{errors.password && errors.password.message}</p>
             </section>
-            <button type='submit'>Login</button>
+            <button type='submit' className='btn btn-primary col-6'>Login</button>
         </form>
 
     </div>

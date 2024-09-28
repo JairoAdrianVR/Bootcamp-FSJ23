@@ -9,7 +9,7 @@ export const useCountriesData = (region:string,name:string) => {
     const getCountries = async ( ) => {
         const response:Response = await fetch(APIuri);
         const data: ICountry[] = await response.json();
-        console.log(data);
+        //console.log(data);
         
         let filteredCountries = data;
 

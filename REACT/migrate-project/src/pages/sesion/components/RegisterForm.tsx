@@ -41,24 +41,24 @@ export const RegisterForm = () => {
             <h1>Register Form</h1>
         <form onSubmit={handleSubmit(onSubmitForm)}>
             <section>
-                <label>Email</label>
-                <input type="email" id="email" placeholder="Email for register" {...register('email')}   />
+                <label className='form-label'>Email</label>
+                <input className='form-control' type="email" id="email" placeholder="Email for register" {...register('email')}   />
                 <p style={{color:"red"}}>{errors.email && errors.email.message}</p>
             </section>
 
             <section>
-                <label>Password</label>
-                <input type="password" id="password" placeholder="Password for register" {...register('password')} />
+                <label className='form-label'>Password</label>
+                <input className='form-control'type="password" id="password" placeholder="Password for register" {...register('password')} />
                 <p style={{color:"red"}}>{errors.password && errors.password.message}</p>
             </section>
 
             <section>
-                <label>Confirm Password</label>
-                <input type="password" id="confirmPassword" placeholder="Repeat your password" {...register('confirmPassword')} />
+                <label className='form-label'>Confirm Password</label>
+                <input className='form-control' type="password" id="confirmPassword" placeholder="Repeat your password" {...register('confirmPassword')} />
                 <p style={{color:"red"}}>{errors.confirmPassword && errors.confirmPassword.message}</p>
 
             </section>
-            <button type='submit'>Register</button>
+            <button type='submit' className='btn btn-success col-6'>Register</button>
         </form>
     </>
   )

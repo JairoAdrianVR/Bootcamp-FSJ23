@@ -8,7 +8,7 @@ interface ICountriesProps{
 export const ListCountries:React.FC<ICountriesProps> = ({countries}) => {
   return (
     <>
-    {countries.map((country) => <CardCountry country={country} />)}
+    {countries.map((country,index) => <section key={index} ><CardCountry country={country} /></section>)}
     </>
   )
 }

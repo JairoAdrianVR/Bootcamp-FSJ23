@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { UserContext } from "../../context/UserDataContext"
 import { auth } from "../../firebase/config"
@@ -19,6 +19,15 @@ export const Home = () => {
     //Limpiamos los datos del usuario de nuestro CONTEXTO
     setData(null)
   }
+
+  const getDataLocal = (nombreLocal) => {
+   return JSON.parse(localStorage.getItem(nombreLocal));
+  }
+
+  useEffect(() => {
+    console.log(getDataLocal('user'));
+    
+  })
 
   return (
     <div>

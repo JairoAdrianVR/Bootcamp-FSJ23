@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup' 
 import { auth } from '../../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserDataContext';
 
@@ -31,6 +31,9 @@ export const LoginForm = () => {
     
     //Utilizamos el contexto para guardar el usuario
     setData(user)
+    //Guardamos en el localStorage el Usuario PARSEADO A STRING
+    saveLocal("user", JSON.stringify(user) )
+
     navigate('/') //Si el usuario se logea con exito, redireccionamos al home
   })
   .catch((error) => {
@@ -38,6 +41,16 @@ export const LoginForm = () => {
     const errorMessage = error.message;
     console.error(errorMessage);
   });
+    }
+
+    /*
+      saveLocal Es una funcion para lograr guardar datos dentro de el LocalStorage
+      @param nombreLocal es un String el cual sera el nombre de la key dentro del LocalStorage
+      @param data es la informacion a guardar en esa key como value. Esta se parseara a STRING
+    */
+   
+    const saveLocal = (nombreLocal,data) => {
+        localStorage.setItem(nombreLocal,data);
     }
 
   return (

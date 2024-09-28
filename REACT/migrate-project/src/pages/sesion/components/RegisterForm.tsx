@@ -7,7 +7,7 @@ import { auth } from '../../../firebase/config';
 const schema = yup.object().shape({
     email: yup.string().required("El correo es un campo obligatorio").email("Correo invalido. Ejemplo: asd@dominio.com"),
     password: yup.string().required("La contrasenia es obligatoria.").min(8,"La contrasenia debe tener al menos 8 caracteres"),
-    confirmPassword: yup.string().oneOf([yup.ref('password'),null],"Las contrasenias deben coindicidir")
+    confirmPassword: yup.string().oneOf([yup.ref('password')],"Las contrasenias deben coindicidir")
 })
 
 
@@ -27,7 +27,7 @@ export const RegisterForm = () => {
         
         })
         .catch((error) => {
-        const errorCode = error.code;
+        //const errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorMessage);
         });

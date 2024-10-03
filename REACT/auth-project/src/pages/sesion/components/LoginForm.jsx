@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup' 
 import { auth } from '../../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { json, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserDataContext';
 
@@ -48,7 +48,7 @@ export const LoginForm = () => {
       @param nombreLocal es un String el cual sera el nombre de la key dentro del LocalStorage
       @param data es la informacion a guardar en esa key como value. Esta se parseara a STRING
     */
-   
+
     const saveLocal = (nombreLocal,data) => {
         localStorage.setItem(nombreLocal,data);
     }

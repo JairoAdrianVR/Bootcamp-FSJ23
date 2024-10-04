@@ -25,9 +25,9 @@
     array_shift($arraycito);
     print_r($arraycito);
 
-    //Array_unique obtener 2 arrays, genera un array unico con datos repetidos
+    //Array_unique obtener 2 arrays, genera un array unico sin datos repetidos
     
-    //Array_merge sin datos repetidos
+    //Array_merge obtener 2 arrays, genera un array con  datos repetidos
 
     //Array_reduce reduce todo el array a un solo dato sumando todos los valores
 
@@ -38,5 +38,5 @@
     //Array_reverse Da vuelta los valores de un array
 
     //Array_map Recorre el array y ejecuta una funcion por cada posicion
-    
+
 ?>

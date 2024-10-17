@@ -6,7 +6,6 @@ class Aerolinea {
     public $nombre;
     public $tipo_aerolinea;
     public $numero_aviones;
-    public $servicio;
 
     function __construct($codigo,$nombreParam,$tipo_aerolineaParam, $numero_avionesParam)
     {
@@ -18,7 +17,7 @@ class Aerolinea {
 
 }
 
-$aerolinea1 = new Aerolinea(1,"Delta","Comercial",80);
-print_r($aerolinea1);
+//$aerolinea1 = new Aerolinea(1,"Delta","Comercial",80);
+//print_r($aerolinea1);
 
 ?>

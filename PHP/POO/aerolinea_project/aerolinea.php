@@ -15,6 +15,8 @@ class Aerolinea {
         $this->numero_aviones = $numero_avionesParam;
     }
 
+
+
 }
 
 //$aerolinea1 = new Aerolinea(1,"Delta","Comercial",80);

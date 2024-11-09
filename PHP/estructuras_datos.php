@@ -161,4 +161,64 @@ print_r($slicedArray);
     foreach($arrayAsociativo as $clave => $valor){
         echo "La clave es {$clave} y su valor es {$valor} \n";
     }
+
+
+    // Array Mutidimensionales
+    
+    $matriz =[
+        [0,1,2],
+        [3,4,5],
+        [6,7,8]
+    ];
+
+    print_r($matriz);
+
+    //Acceder a los datos de una matriz
+    print($matriz[0][1]);
+
+
+    // Listas Enlazadas
+
+    class Nodo {
+        public $valor;
+        public $siguiente;
+
+        public function __construct($dato) {
+            $this->valor = $dato;
+            $this->siguiente = null;
+        }
+    }
+
+    class ListaEnlazada {
+        public $cabeza;
+
+        function __construct()
+        {
+            $this->cabeza = null;
+        }
+
+        function agregarNodo($dato){
+            $nuevoNodo = new Nodo($dato);
+
+            if($this->cabeza === null){
+                $this->cabeza = $nuevoNodo;
+                return $nuevoNodo;
+            }else{
+                $nodoActual = $this->cabeza;
+
+                while($nodoActual->siguiente !== null){
+                    $nodoActual = $nodoActual->siguiente;
+                }
+                $nodoActual->siguiente = $nuevoNodo;
+                return $nuevoNodo;
+            }
+        }
+    }
+
+    $listita = new ListaEnlazada();
+    $listita->agregarNodo(3);
+    $listita->agregarNodo(5);
+    $listita->agregarNodo(10);
+    $listita->agregarNodo(15);
+    print_r($listita);
 ?>

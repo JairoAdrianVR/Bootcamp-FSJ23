@@ -24,7 +24,33 @@ function bubbleSort($array){
     return $array;
 }
 
-print_r(bubbleSort([1,2,2,3,3,4,5]));
+function duplicados($array){
+   $arrayOrdenado = bubbleSort($array);
+
+   for($i = 0; $i < count($arrayOrdenado) -1; $i++){
+       if($arrayOrdenado[$i] == $arrayOrdenado[$i+1]){
+            return "Existe duplicado";
+        }
+        //print("{$arrayOrdenado[$i]} y la siguiente es: {$arrayOrdenado[$i+1]} \n");
+   }
+   return("No existen duplicados");
+   
+}
+
+print(duplicados([4,3,5,1,2]));
+
+
+$array = [1,3,19,2,5,8];
+
+for($i = 0; $i < 5; $i++){
+    print("Recorrelo de nuevo \n");
+    
+    for($j = 0; $j < 9; $j++){
+        print(" {$j} \n ");
+    }
+}
+
+
 
 
 ?>

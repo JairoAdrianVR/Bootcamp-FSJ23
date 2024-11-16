@@ -221,4 +221,67 @@ print_r($slicedArray);
     $listita->agregarNodo(10);
     $listita->agregarNodo(15);
     print_r($listita);
+
+
+    class Node{
+        public $value;
+        public $left;
+        public $right;
+
+        function __construct($data)
+        {
+            $this->value = $data;
+            $this->left = null;
+            $this->right = null;
+        }
+    }
+
+    class BinaryTree{
+        public $root;
+
+        function __construct()
+        {
+            $this->root = null;
+        }
+
+        function insert($data){
+            $newNode = new Node($data);
+
+            if($data === null) return "Necesitamos un dato numerico";
+
+            if($this->root === null){
+                $this->root = $newNode;
+                return $newNode;
+            }
+
+            $currentNode = $this->root;
+
+            while(true){
+
+            if($newNode->value < $currentNode->value){
+                if($currentNode->left === null){
+                    $currentNode->left = $newNode;
+                    return $newNode;
+                }
+                $currentNode = $currentNode->left;
+            }else{
+                if($currentNode->right === null){
+                    $currentNode->right = $newNode;
+                    return $newNode;
+                }
+                $currentNode = $currentNode->right;
+            }
+                
+           }
+        }
+    }
+
+    $arbolito = new BinaryTree();
+    $arbolito->insert(5);
+    $arbolito->insert(10);
+    $arbolito->insert(3);
+    $arbolito->insert(15);
+    $arbolito->insert(1);
+    $arbolito->insert(4);
+    print_r($arbolito);
 ?>

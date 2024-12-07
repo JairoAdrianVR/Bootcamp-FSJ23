@@ -2,8 +2,23 @@
     require_once './controller/ProductController.php';
     $controller = new ProductController();
 
-    $controller->read();
+    $action = isset($_GET['action']) ? $_GET['action'] : 'read';
+
+
+    switch($action){
+        case 'read':
+            $controller->read();
+            break;
+        case 'create':
+            //$metodoPost = $_POST;
+            $controller->create();
+            break;
+    }
+     
+    
 
     //include './views/home.php';
-    echo "Hola";
+    //echo "Hola";
+    print($action);
+    //print($metodoPost);
 ?>

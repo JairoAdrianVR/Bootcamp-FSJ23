@@ -23,15 +23,16 @@
 
         public function create(){
            //Forma 1
-            $query = "INSERT INTO {$this->table_name} SET nombre={$this->name}, precio={$this->price}, descuento={$this->discount}, cantidad={$this->quantity}";
+           /* $query = "INSERT INTO {$this->table_name} SET nombre={$this->name}, precio={$this->price}, descuento={$this->discount}, cantidad={$this->quantity}";
             $sentence = $this->connection->prepare($query);
             $sentence->execute();
-
+            return $sentence;*/
             //Forma 2
+            
             $query2 = "INSERT INTO {$this->table_name} (nombre,precio,descuento,cantidad) VALUES (?,?,?,?)";
             $sentence = $this->connection->prepare($query2);
             $sentence->execute([$this->name,$this->price,$this->discount,$this->quantity]);
-
+            return $sentence;
         }
 
 

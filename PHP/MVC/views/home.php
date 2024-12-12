@@ -8,37 +8,33 @@
 </head>
 <body class="bg-light">
     <?php include './views/layouts/navbar.php'?>
-
     <main class="container mt-2">
         <a href="./index.php?action=create" class="btn btn-success">Agregar producto</a>
 
         <table class="table m-2">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">#ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Descuento</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
+    <?php foreach($products as $product): ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $product['id']?></th>
+      <td><?php echo $product['nombre']?></td>
+      <td><?php echo $product['precio']?></td>
+      <td><?php echo $product['descuento']?></td>
+      <td><?php echo $product['cantidad']?></td>
+      <td><a href="./index.php?action=update&id=<?php echo $product['id']?>" class="btn btn-warning">Editar </a>
+      <a href="./index.php?action=delete&id=<?php echo $product['id']?>" class="btn btn-danger">Eliminar </a>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php endforeach;?>
   </tbody>
 </table>
     </main>

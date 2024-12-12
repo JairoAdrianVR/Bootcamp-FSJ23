@@ -35,7 +35,31 @@
             return $sentence;
         }
 
+        public function update(){
+            $query = "UPDATE {$this->table_name} SET nombre=?, precio=?, descuento=?, cantidad=? WHERE id = {$this->id}";
+            $sentence = $this->connection->prepare($query);
+            $sentence->execute([$this->name,$this->price,$this->discount,$this->quantity]);
+            return $sentence;
+            /* if($sentence->execute()){
+                return true;
+            }
+            return false;*/
+        }
 
+        public function findOne($id){
+            $query = "SELECT * FROM {$this->table_name} WHERE id = {$id}";
+            $sentence = $this->connection->prepare($query);
+            $sentence->execute();
+            return $sentence;
+        }
+
+
+        public function delete($id){
+            $query = "DELETE FROM {$this->table_name} WHERE id = {$id}";
+            $sentence = $this->connection->prepare($query);
+            return $sentence->execute();
+
+        }
     }
 
 ?>

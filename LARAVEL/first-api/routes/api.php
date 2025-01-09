@@ -9,3 +9,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('articles',ArticleController::class);
+
+/*  LARAVEL 9/10
+Route::get('/articles',[ArticleController::class,'index']);
+Route::post('/articles',[ArticleController::class,'store']);
+Route::get('/articles/inactive',[ArticleController::class,'store']);
+*/

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -24,6 +25,16 @@ class ArticleController extends Controller
         return response()->json($article,201);
     }
 
+    /*
+    public function getInactiveArticles(){
+        // QueryBuilders
+        $articles = DB::table('articles')
+        ->select('*')
+        ->where('status','=','inactive')
+        ->get();
+        return $articles;
+    }*/
+
     /**
      * Display the specified resource.
      */
@@ -35,16 +46,22 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request,string $id)
     {
         //
+        $article = Article::findOrFail($id);
+
+        $article->update($request->all());
+        return response()->json($article,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy(string $id)
     {
-        //
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return response()->json('El articulo se elimino con exito.',200);
     }
 }

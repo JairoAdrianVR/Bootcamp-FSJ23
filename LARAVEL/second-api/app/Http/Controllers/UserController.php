@@ -67,6 +67,7 @@ class UserController extends Controller
             $user = $request->user();
 
             // Creamos un token para el usuario
+            
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
@@ -79,6 +80,21 @@ class UserController extends Controller
             return response()->json([
                 'message' => "Login Failed! {$e->getMessage()}"
             ] );
+        }
+    }
+
+    public function logout(Request $request){
+        try{
+            // Eliminamos el token del usuario
+            $request->user()->tokens()->delete();
+
+            return response()->json([
+                'message' => 'User Logout Successful!'
+            ]);
+        }catch(Exception $e){
+            return response()->json([
+                'message' => "Logout Failed! {$e->getMessage()}"
+            ]);
         }
     }
  

@@ -87,7 +87,7 @@ class UserController extends Controller
         try{
             // Eliminamos el token del usuario
             $request->user()->tokens()->delete();
-
+            
             return response()->json([
                 'message' => 'User Logout Successful!'
             ]);
@@ -97,5 +97,7 @@ class UserController extends Controller
             ]);
         }
     }
+
+  
  
 }

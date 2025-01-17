@@ -42,6 +42,10 @@ class CommentController extends Controller
                 'user_id' => $request->user()->id
             ]);
 
+            return response()->json([
+                'message' => 'Comment created successfully',
+                'comment' => $comment
+            ], 201);    
 
         
         }catch(Exception $error){
@@ -51,22 +55,6 @@ class CommentController extends Controller
         }
     
    
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Comment $comment)
-    {
-        //
     }
 
     /**

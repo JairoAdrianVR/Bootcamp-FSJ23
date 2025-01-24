@@ -50,24 +50,33 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article)
+    public function edit(string $id)
     {
         //
+        $article = Article::findOrFail($id);
+
+        return view('articles.edit',['article' => $article]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, string $id)
     {
         //
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect('/');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy(string $id)
     {
         //
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return redirect('/');
     }
 }
